@@ -1,5 +1,5 @@
 const { PDFDocument, rgb, degrees } = require('pdf-lib');
-const fontkit = require('@pdf-lib/fontkit'); // Import fontkit
+const fontkit = require('@pdf-lib/fontkit');
 const fs = require('fs').promises;
 
 async function createPdf() {
@@ -12,7 +12,7 @@ async function createPdf() {
     pdfDoc.registerFontkit(fontkit);
 
     // Load and embed the custom font
-    const ubuntuFontBytes = await fs.readFile('./KHMERMPTC.OTF');
+    const ubuntuFontBytes = await fs.readFile('');
     const ubuntuFont = await pdfDoc.embedFont(ubuntuFontBytes);
 
     // Get the first page of the document
@@ -46,10 +46,12 @@ async function createPdf() {
       x: 55,
       y: 380 
     })
+
     kyriosField.addToPage(page, { 
       x: 55,
       y: 320 
     })
+
     virtueField.addToPage(page, { 
       x: 275, 
       y: 380 
@@ -82,6 +84,7 @@ async function createPdf() {
       // rotate: degrees(90), // Uncomment if you want to use rotation
       font: ubuntuFont, // Use the embedded custom font
     });
+
 
     sex.addToPage(page, {
       x: 220,
